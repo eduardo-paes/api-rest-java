@@ -54,5 +54,4 @@ public class Imc {
     @Column(name = "DT_EXCLUSAO")
     private Date dtExclusao;
 
-
 }
