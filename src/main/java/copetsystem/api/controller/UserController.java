@@ -2,6 +2,7 @@ package copetsystem.api.controller;
 
 import copetsystem.api.model.User;
 import copetsystem.api.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("${api.default.url}/user")
 public class UserController {
-    private final UserService service;
-
-    public UserController(UserService service){
-        this.service = service;
-    }
+    @Autowired
+    private UserService service;
 
     @PostMapping
     public ResponseEntity<User> add(@RequestBody User user){
